@@ -1,15 +1,12 @@
 # -*- encoding: utf-8 -*-
 from django.conf.urls import include, url
 
-from views import SujetoList, SujetoDetail
+from clientes import views
 
-sujeto_urls = patterns('',
-                    url(r'^(?P<cod>[0-9a-zA-Z]+)/',
-                        SujetoDetail.as_view(), name='sujeto-detail'),
-                    url(r'^', SujetoList.as_view(), name='sujeto-list'),
-                    )
+app_name = 'clientes'
 
-
-"""urlpatterns = urlpatterns[]
-    'clientes.views', url(r'^sujeto/', include(sujeto_urls)),
-]"""
+urlpatterns = [
+    url(r'^sujetos/', views.SujetoList.as_view()),
+    url(r'^sujetos/<int:pk>/', views.SujetoDetail.as_view()),
+    url('', views.api_root),
+]
