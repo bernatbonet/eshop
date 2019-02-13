@@ -4,8 +4,8 @@ from __future__ import unicode_literals
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny, IsAuthenticated
 
-from .models import Pais, Provincia, Sujeto, Via
-from .serializers import PaisSerializer, ProvinciaSerializer, SujetoSerializer, ViaSerializer
+from .models import Pais, Provincia, Municipio, Sujeto, Via
+from .serializers import PaisSerializer, ProvinciaSerializer, MunicipioSerializer, SujetoSerializer, ViaSerializer
 
 class PaisViewSet(viewsets.ModelViewSet):
     """
@@ -17,10 +17,19 @@ class PaisViewSet(viewsets.ModelViewSet):
 
 class ProvinciaViewSet(viewsets.ModelViewSet):
     """
-    Simple ViewSet for listing or retrieving paises
+    Simple ViewSet for listing or retrieving provincias
     """
     queryset = Provincia.objects.all()
     serializer_class = ProvinciaSerializer
+    permission_classes = [AllowAny]
+
+
+class MunicipioViewSet(viewsets.ModelViewSet):
+    """
+    Simple ViewSet for listing or retrieving municipios
+    """
+    queryset = Municipio.objects.all()
+    serializer_class = MunicipioSerializer
     permission_classes = [AllowAny]
 
 class SujetoViewSet(viewsets.ModelViewSet):

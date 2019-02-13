@@ -72,6 +72,27 @@ class Pais(models.Model):
 		verbose_name = _('Pais')
 		verbose_name_plural = _('Paises')
 
+class Municipio(models.Model):
+	"""
+	States model
+	"""
+	provincia = models.ForeignKey('Provincia', on_delete=models.CASCADE, 
+		verbose_name = _(u'Provincia'), help_text= _(u'Introduzca la provincia al que pertenece el municipio'))
+	cod = models.CharField(max_length=3, verbose_name = _(
+		u'Codigo'), help_text= _(u'Introduzca el codigo de municipio'), unique=True)
+	nom = models.CharField(max_length=60, verbose_name= _(
+		u'Nombre'), help_text= _(u'Introduzca el nombre del municipio'), unique=True)
+
+	def __unicode__(self):
+		return u'{} - {}'.format(self.cod, self.nom)
+	
+	def __str__(self):
+		return '{} - {}'.format(self.cod, self.nom)
+
+	class Meta:
+		verbose_name = _('Municipio')
+		verbose_name_plural = _('Municipios')
+
 class Sujeto(models.Model):
 	"""
 	Subject type

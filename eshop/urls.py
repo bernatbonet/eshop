@@ -25,6 +25,7 @@ from clientes import views as clientes_views
 router = routers.DefaultRouter()
 router.register(r'paises', clientes_views.PaisViewSet,  basename='paises')
 router.register(r'provincias', clientes_views.ProvinciaViewSet,  basename='provincias')
+router.register(r'municipios', clientes_views.MunicipioViewSet, basename='municipios')
 router.register(r'sujetos', clientes_views.SujetoViewSet,  basename='sujetos')
 router.register(r'vias', clientes_views.ViaViewSet,  basename='vias')
 
