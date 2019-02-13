@@ -31,16 +31,10 @@ router.register(r'vias', clientes_views.ViaViewSet,  basename='vias')
 from clientes import urls as urls_clientes
 
 urlpatterns = [
-<<<<<<< HEAD
-    url(r'^clientes/', include(urls_clientes)),
-    url(r'^api_auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^admin/', admin.site.urls),
-=======
     path('admin/', admin.site.urls),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
->>>>>>> b3c9a43a39b8e3021ddea700f30e39f5a8dcd9bd
 ]
 
 urlpatterns += staticfiles_urlpatterns()

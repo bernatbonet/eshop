@@ -1,17 +1,6 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
-<<<<<<< HEAD
-from django.shortcuts import render
-from rest_framework import viewsets
-
-from models import Sujeto
-from serializers import SujetoSerializer
-
-
-class SujetoViewSet(viewsets.ModelViewSet):
-    serializer_class = SujetoSerializer
-=======
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny, IsAuthenticated
 
@@ -49,4 +38,3 @@ class ViaViewSet(viewsets.ModelViewSet):
     queryset = Via.objects.all()
     serializer_class = ViaSerializer
     permission_classes = [AllowAny]
->>>>>>> b3c9a43a39b8e3021ddea700f30e39f5a8dcd9bd
