@@ -30,6 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_env_variable('LOCAL_SECRET')
+# SECRET_KEY = 'r90ti5p^90o%rs*#6*uw&=0x!k0i&=pq2$0)9l$--5ivue__2'
 
 ALLOWED_HOSTS = []
 
@@ -43,8 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'clientes',
     'rest_framework',
+    'rest_framework.authtoken',
+    'clientes',
+    'csvimport.app.CSVImportConf',
 ]
 
 MIDDLEWARE = [
@@ -120,6 +123,11 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ]
 }

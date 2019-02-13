@@ -1,4 +1,10 @@
 *.pyc
 *.log
 *.sqlite3
+<<<<<<< HEAD
 */migrations/*
+=======
+*.csv
+*.xlsx
+migrations/
+>>>>>>> b3c9a43a39b8e3021ddea700f30e39f5a8dcd9bd

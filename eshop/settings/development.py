@@ -16,3 +16,7 @@ DATABASES = {
         'NAME': os.path.join(os.path.join(BASE_DIR, 'databases'), 'db.sqlite3'),
     }
 }
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
